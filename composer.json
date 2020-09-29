@@ -1,0 +1,13 @@
+{
+    "name": "droz/pixeldrain",
+    "description": "Pixeldrain.com downloader",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jeremy Harmon",
+            "email": "jeremy.harmon@zoho.com"
+        }
+    ],
+    "require": {}
+}
