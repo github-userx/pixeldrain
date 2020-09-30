@@ -8,7 +8,7 @@ $cfg = [
     'downloadPath' => '.'
 ];
 
-function fetchUrl($url) {
+function _fetchMetadata($url) {
     $curl = curl_init();
     
     curl_setopt($curl, CURLOPT_URL, $url);
@@ -24,12 +24,12 @@ function get($id) {
     global $cfg;
 
     echo "[PixelDrain] Fetching metadata for ${id}...";
-    $info = json_decode(fetchUrl("${cfg['baseUrl']}/list/${id}"));
+    $info = json_decode(_fetchMetadata("${cfg['baseUrl']}/list/${id}"));
     if( $info->success == true ) {
         echo " done.\n[PixelDrain] id is a file list, fetching files...\n";
         _handleFileList($id, $info);
     } else {
-        $info = json_decode(fetchUrl("{$cfg['baseUrl']}/file/${id}/info"));
+        $info = json_decode(_fetchMetadata("{$cfg['baseUrl']}/file/${id}/info"));
         if( $info->success != true ) 
             die(" failed!");
         echo " done.\n";
