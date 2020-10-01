@@ -34,6 +34,7 @@ function get($id) {
             die(" failed!");
         echo " done.\n";
 
+        $fileName = $info->name;
         echo "[PixelDrain] Downloading ${fileName}:\n\n";
         _getFile($info->id, $info->name);
     }
